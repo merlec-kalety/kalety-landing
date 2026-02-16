@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- French main page -->
+  <url>
+    <loc>https://kalety.fr/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kalety.fr/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kalety.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kalety.fr/fr/"/>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- English main page -->
+  <url>
+    <loc>https://kalety.fr/en/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kalety.fr/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kalety.fr/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kalety.fr/fr/"/>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- French Join Us page -->
+  <url>
+    <loc>https://kalety.fr/fr/join-us</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kalety.fr/fr/join-us"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kalety.fr/en/join-us"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kalety.fr/fr/join-us"/>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- English Join Us page -->
+  <url>
+    <loc>https://kalety.fr/en/join-us</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://kalety.fr/fr/join-us"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kalety.fr/en/join-us"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kalety.fr/fr/join-us"/>
+    <lastmod>2026-02-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

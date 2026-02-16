@@ -1,0 +1,11 @@
+# Kalety — robots.txt
+# Hosted on Vercel
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://kalety.fr/sitemap.xml
+
+# Block non-production assets (if any leftover WIP files)
+Disallow: /*_WIP_*
