@@ -1,8 +1,14 @@
 {
+  "trailingSlash": true,
   "redirects": [
     {
-      "source": "/",
-      "destination": "/fr/",
+      "source": "/fr/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/fr/join-us",
+      "destination": "/join-us",
       "permanent": true
     }
   ],
