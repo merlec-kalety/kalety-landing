@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1YFMPHNXM2"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1YFMPHNXM2');</script>
+  <!-- TODO: Add privacy-friendly analytics (Plausible, Umami, or Vercel Analytics) — no cookies, no banner needed -->
   <title>Kalety - Logiciel IA pour comptes-rendus neuropsychologiques | Bilan en 30 min</title>
   <meta name="description" content="Kalety est le logiciel IA qui redige vos comptes-rendus de bilan neuropsychologique. Dictez vos observations, obtenez un rapport structure en 30 minutes. WISC-V, WAIS-IV, conforme HDS.">
   <meta name="keywords" content="logiciel neuropsychologue, compte rendu neuropsychologique, bilan neuropsychologique IA, logiciel compte rendu clinique, WISC-V, WAIS-IV, assistant IA neuropsychologie, redaction bilan, rapport clinique automatise, HDS, logiciel paramedicaux, outil redaction bilan, trame bilan neuropsychologique">
@@ -602,6 +600,49 @@
     .tr-ic svg { flex-shrink: 0; }
     .tr-item span { font-size: .8rem; color: var(--text-30); font-weight: 500; }
 
+    /* ═══════ Team section ═══════ */
+    .team-sec {
+      text-align: center; overflow: hidden;
+    }
+    .team-sec::before {
+      content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+      width: 900px; height: 500px;
+      background: radial-gradient(ellipse, rgba(27,163,150,.03) 0%, rgba(124,58,237,.02) 40%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .team-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+      max-width: 900px; margin: 0 auto;
+    }
+
+    .team-card {
+      padding: 36px 24px 28px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      text-align: center;
+      transition: all .4s var(--ease);
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center; justify-content: flex-start;
+    }
+    .team-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,.06), 0 0 0 1px rgba(27,163,150,.1);
+    }
+
+    .team-name { font-size: 1.1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; letter-spacing: -.02em; }
+    .team-role { font-size: .8rem; font-weight: 600; color: var(--teal); margin-bottom: 12px; display: block; }
+    .team-desc { font-size: .8rem; line-height: 1.65; color: var(--text-50); }
+
+    @media (max-width:768px) {
+      .team-grid { grid-template-columns: 1fr; max-width: 380px; gap: 16px; }
+    }
+    @media (min-width:769px) and (max-width:960px) {
+      .team-grid { grid-template-columns: repeat(3, 1fr); gap: 14px; }
+      .team-card { padding: 28px 18px 24px; }
+    }
+
     /* ═══════ CTA section ═══════ */
     .cta-sec {
       text-align: center; padding: 140px clamp(20px,4vw,48px);
@@ -932,7 +973,7 @@
     <a href="#problem" class="lk" data-i18n="nav_problem">Problème</a>
     <a href="#solution" class="lk" data-i18n="nav_solution">Solution</a>
     <a href="#process" class="lk" data-i18n="nav_process">Processus</a>
-    <a href="join-us" class="lk" data-i18n="nav_team">Join Us</a>
+    <a href="#team" class="lk" data-i18n="nav_team">Join Us</a>
     <div class="lang-sw">
       <button id="lFr" class="on" onclick="setL('fr')">FR</button>
       <button id="lEn" onclick="window.location.href='../en/'">EN</button>
@@ -945,7 +986,7 @@
   <a href="#problem" onclick="togM()" data-i18n="nav_problem">Problème</a>
   <a href="#solution" onclick="togM()" data-i18n="nav_solution">Solution</a>
   <a href="#process" onclick="togM()" data-i18n="nav_process">Processus</a>
-  <a href="join-us" data-i18n="nav_team">Join Us</a>
+  <a href="#team" data-i18n="nav_team">Join Us</a>
   <a href="mailto:contact@kalety.fr" data-i18n="nav_cta">Contact</a>
 </div>
 
@@ -1206,6 +1247,34 @@
   </div>
 </div>
 
+<!-- TEAM -->
+<section id="team" class="team-sec">
+  <div class="inner">
+    <div class="r cen">
+      <div class="tag" data-i18n="team_tag">L'équipe</div>
+      <h2 class="sh" data-i18n="team_h">Construite par des praticiens,<br>pour des praticiens<i style="font-style:normal;color:var(--teal)">.</i></h2>
+      <p class="sp cen" data-i18n="team_p">Une équipe à l'intersection de l'IA, de la santé et du produit.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card r d1">
+        <div class="team-name">Hugo Basset</div>
+        <span class="team-role" data-i18n="team_r1">CEO & Co-fondateur</span>
+        <p class="team-desc" data-i18n="team_d1">Polytechnique · UC Berkeley</p>
+      </div>
+      <div class="team-card r d2">
+        <div class="team-name">Chloé Legré</div>
+        <span class="team-role" data-i18n="team_r2">Sales & Marketing · Co-fondatrice</span>
+        <p class="team-desc" data-i18n="team_d2">EDHEC · Ex-Bain & Company</p>
+      </div>
+      <div class="team-card r d3">
+        <div class="team-name" data-i18n="team_adv_title">Advisors</div>
+        <span class="team-role" data-i18n="team_adv_role">Experts & consultants</span>
+        <p class="team-desc" data-i18n="team_adv_desc">PhD Neuropsychologues · Expert IA</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="cta-sec">
   <h2 class="sh r" data-i18n="cta_h">Prêt à redevenir maître de votre temps ?</h2>
@@ -1292,7 +1361,7 @@
 
 <script>
 const T={
-fr:{nav_problem:'Problème',nav_solution:'Solution',nav_process:'Processus',nav_team:'Join Us',nav_cta:'Contact',
+fr:{nav_problem:'Problème',nav_solution:'Solution',nav_process:'Processus',nav_team:'Équipe',nav_cta:'Contact',
 h_badge:'Plateforme IA clinique',h1_t:'Concentrez-vous sur<br>le patient, ',h1_grad:'pas sur la paperasse.',
 h_sub:'L\'assistant IA des professionnels de santé. Dictez vos observations, il génère vos rapports cliniques -structurés, conformes, prêts à signer.',
 h_cta:'Rejoindre la bêta',
@@ -1321,6 +1390,11 @@ ts1q:'"La meilleure IA pour Neuropsys que j\'ai testée. Point final."',ts1r:'Ne
 ts2q:'"Mon premier test avec Kalety : j\'ai dicté mes notes de séance, et le rapport était bon dès la première génération."',ts2r:'Psychiatre',
 ts3q:'"J\'ai récupéré presque 2 heures par jour. Merci Kalety !"',ts3r:'Psychologue clinicien',
 ts4q:'"On construit Kalety pour chaque praticien qui mérite de passer moins de temps à écrire et plus de temps à soigner. On a hâte d\'ouvrir la plateforme à l\'ensemble du monde médical."',ts4r:'CEO & Co-fondateur, Kalety',
+team_tag:'L\'équipe',team_h:'Construite par des praticiens,<br>pour des praticiens<i style="font-style:normal;color:var(--teal)">.</i>',
+team_p:'Une équipe à l\'intersection de l\'IA, de la santé et du produit.',
+team_r1:'CEO & Co-fondateur',team_d1:'Polytechnique · UC Berkeley',
+team_r2:'Sales & Marketing · Co-fondatrice',team_d2:'EDHEC · Ex-Bain & Company',
+team_adv_title:'Advisors',team_adv_role:'Experts & consultants',team_adv_desc:'PhD Neuropsychologues · Expert IA',
 cta_h:'Prêt à redevenir maître de votre temps ?',cta_p:'Rejoignez les premiers praticiens à transformer leur pratique avec Kalety.',
 cta_ask:'Nous contacter',cta_btn:'Rejoindre la bêta',
 m_h:'Rejoindre la bêta',m_sub:'Soyez parmi les premiers praticiens à tester Kalety. Places limitées.',
@@ -1331,7 +1405,7 @@ m_motiv:'Motivation <span style="font-weight:400;color:var(--text-15)">(optionne
 m_btn:'Demander un accès',m_ok_h:'Demande envoyée !',m_ok_p:'Merci pour votre intérêt. Nous vous enverrons un email de confirmation sous 48h.',
 bar_text:'<strong>3 mois offerts</strong> si vous rejoignez la bêta',bar_seats:'des places restantes',bar_cta:'Rejoindre maintenant',
 f_rights:'Tous droits réservés'},
-en:{nav_problem:'Problem',nav_solution:'Solution',nav_process:'Process',nav_team:'Join Us',nav_cta:'Contact',
+en:{nav_problem:'Problem',nav_solution:'Solution',nav_process:'Process',nav_team:'Team',nav_cta:'Contact',
 h_badge:'Clinical AI platform',h1_t:'Focus on the patient,<br>',h1_grad:'not the paperwork.',
 h_sub:'The AI assistant for healthcare professionals. Dictate your observations, it generates your clinical reports -structured, compliant, ready to sign.',
 h_cta:'Join the beta',
@@ -1360,6 +1434,11 @@ ts1q:'"The best AI for Neuropsych I\'ve ever tested. Period."',ts1r:'Neuropsycho
 ts2q:'"My first test with Kalety: I dictated my session notes, and the report was spot-on right out of the gate."',ts2r:'Psychiatrist',
 ts3q:'"I\'ve gained back nearly 2 hours a day. Thanks Kalety!"',ts3r:'Clinical psychologist',
 ts4q:'"We\'re building Kalety for every practitioner who deserves to spend less time writing and more time caring. We can\'t wait to open the platform to the entire medical community."',ts4r:'CEO & Co-founder, Kalety',
+team_tag:'The team',team_h:'Built by practitioners,<br>for practitioners<i style="font-style:normal;color:var(--teal)">.</i>',
+team_p:'A team at the intersection of AI, healthcare, and product.',
+team_r1:'CEO & Co-founder',team_d1:'Polytechnique · UC Berkeley',
+team_r2:'Sales & Marketing · Co-founder',team_d2:'EDHEC · Ex-Bain & Company',
+team_adv_title:'Advisors',team_adv_role:'Experts & consultants',team_adv_desc:'PhD Neuropsychologists · AI Expert',
 cta_h:'Ready to reclaim your time?',cta_p:'Join the first practitioners transforming their practice with Kalety.',
 cta_ask:'Ask us more',cta_btn:'Join the beta',
 m_h:'Join the beta',m_sub:'Be among the first practitioners to try Kalety. Limited spots.',
