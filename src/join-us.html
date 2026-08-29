@@ -431,7 +431,7 @@
     }
     .f-logo { flex: 1; font-size: 1rem; font-weight: 800; color: var(--text-30); letter-spacing: -.03em; text-align: left; }
     .f-logo i { font-style: normal; color: var(--teal); }
-    .f-mail { flex: 1; text-align: center; }
+    .f-mail { flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
     .f-mail a { color: var(--text-30); font-size: .8125rem; text-decoration: none; font-weight: 500; transition: color .3s; }
     .f-copy { flex: 1; font-size: .75rem; color: var(--text-15); text-align: right; }
     .f-mail a:hover { color: var(--teal); }
@@ -821,7 +821,7 @@
 <!-- FOOTER -->
 <footer>
   <div class="f-logo">Kalety<i>.</i></div>
-  <div class="f-mail"><a href="mailto:contact@kalety.fr">contact@kalety.fr</a></div>
+  <div class="f-mail"><a href="mailto:contact@kalety.fr">contact@kalety.fr</a><a href="/mentions-legales" class="f-legal">Mentions légales</a></div>
   <div class="f-copy">&copy; 2026 Kalety SAS - <span data-i18n="f_rights">Tous droits réservés</span></div>
 </footer>
 

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentions légales | Kalety</title>
+  <meta name="description" content="Mentions légales de Kalety SAS, éditeur du site kalety.fr et de l'application Kalety : identification de la société, direction de la publication, propriété intellectuelle et contact.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1BA396">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <link rel="canonical" href="https://kalety.fr/mentions-legales">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Kalety">
+  <meta property="og:title" content="Mentions légales | Kalety">
+  <meta property="og:description" content="Mentions légales de Kalety SAS, éditeur du site kalety.fr et de l'application Kalety.">
+  <meta property="og:url" content="https://kalety.fr/mentions-legales">
+  <meta property="og:image" content="https://kalety.fr/og-image.png">
+  <meta property="og:locale" content="fr_FR">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap&font-display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #F8F9FC;
+      --surface: #FFFFFF;
+      --surface-2: #F1F3F8;
+      --teal: #1BA396;
+      --teal-dark: #158A7E;
+      --text: #1A1D27;
+      --text-70: rgba(26,29,39,0.75);
+      --text-50: rgba(26,29,39,0.55);
+      --text-30: rgba(26,29,39,0.38);
+      --text-15: rgba(26,29,39,0.12);
+      --text-08: rgba(26,29,39,0.06);
+      --border: rgba(26,29,39,0.08);
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a, button { -webkit-tap-highlight-color: transparent; }
+    ::selection { background: var(--teal); color: #fff; }
+
+    /* ═══════ Nav ═══════ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: 64px; display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(20px,4vw,48px);
+      transition: all .5s var(--ease);
+    }
+    nav.s {
+      background: rgba(248,249,252,0.85);
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo { font-size: 1.25rem; font-weight: 800; color: var(--text); text-decoration: none; letter-spacing: -.04em; }
+    .logo i { font-style: normal; color: var(--teal); }
+
+    .cta-nav {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font); font-size: .8125rem; font-weight: 600;
+      color: #fff; background: var(--teal);
+      border: none; border-radius: 10px; padding: 8px 18px;
+      text-decoration: none; cursor: pointer;
+      transition: all .3s var(--ease);
+    }
+    .cta-nav:hover { background: var(--teal-dark); box-shadow: 0 4px 16px rgba(27,163,150,.25); transform: translateY(-1px); }
+
+    /* ═══════ Legal page ═══════ */
+    .legal { padding: 140px clamp(20px,4vw,48px) 100px; }
+    .legal-inner { max-width: 720px; margin: 0 auto; }
+
+    .back {
+      display: inline-flex; align-items: center; gap: 7px;
+      font-size: .8125rem; font-weight: 600; color: var(--text-30);
+      text-decoration: none; margin-bottom: 28px;
+      transition: color .3s var(--ease);
+    }
+    .back:hover { color: var(--teal); }
+    .back svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .legal h1 {
+      font-size: clamp(2.1rem,5vw,3rem); font-weight: 900;
+      letter-spacing: -.045em; line-height: 1.05; margin-bottom: 14px;
+    }
+    .legal h1 i { font-style: normal; color: var(--teal); }
+
+    .updated {
+      font-size: .8125rem; color: var(--text-30); font-weight: 500;
+      padding-bottom: 36px; margin-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .legal h2 {
+      font-size: 1.15rem; font-weight: 700; letter-spacing: -.02em;
+      margin: 44px 0 16px; color: var(--text);
+    }
+    .legal h2:first-of-type { margin-top: 0; }
+
+    .legal p {
+      font-size: .9375rem; line-height: 1.8; color: var(--text-50);
+      margin-bottom: 14px;
+    }
+    .legal p:last-child { margin-bottom: 0; }
+    .legal a { color: var(--teal); text-decoration: none; font-weight: 500; }
+    .legal a:hover { text-decoration: underline; }
+    .legal strong { color: var(--text); font-weight: 600; }
+
+    /* Identity card */
+    .id-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 16px; padding: 8px 24px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.03);
+    }
+    .id-card dl { display: grid; grid-template-columns: minmax(140px, 34%) 1fr; }
+    .id-card dt, .id-card dd {
+      font-size: .875rem; line-height: 1.6;
+      padding: 14px 0; border-top: 1px solid var(--border);
+    }
+    .id-card dt { color: var(--text-30); font-weight: 500; padding-right: 16px; }
+    .id-card dd { color: var(--text); font-weight: 600; }
+    .id-card dt:first-of-type, .id-card dl > dd:nth-of-type(1) { border-top: none; }
+    .id-card dd a { font-weight: 600; }
+
+    /* ═══════ Footer ═══════ */
+    footer {
+      padding: 36px clamp(20px,4vw,48px);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .f-logo { flex: 1; font-size: 1rem; font-weight: 800; color: var(--text-30); letter-spacing: -.03em; text-align: left; }
+    .f-logo i { font-style: normal; color: var(--teal); }
+    .f-mail { flex: 1; text-align: center; display: flex; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .f-mail a { color: var(--text-30); font-size: .8125rem; text-decoration: none; font-weight: 500; transition: color .3s; }
+    .f-mail a:hover { color: var(--teal); }
+    .f-copy { flex: 1; font-size: .75rem; color: var(--text-15); text-align: right; }
+
+    @media (max-width: 760px) {
+      .legal { padding: 110px 20px 72px; }
+      .id-card { padding: 4px 18px; }
+      .id-card dl { grid-template-columns: 1fr; }
+      .id-card dt { padding: 14px 0 0; }
+      .id-card dd { padding: 2px 0 14px; border-top: none; }
+      .id-card dt:first-of-type { border-top: none; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+      .f-logo, .f-mail, .f-copy { text-align: center; flex: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav id="nb">
+  <a href="/" class="logo" aria-label="Kalety - Accueil">Kalety<i>.</i></a>
+  <a href="/" class="cta-nav">Retour au site</a>
+</nav>
+
+<main class="legal">
+  <div class="legal-inner">
+    <a href="/" class="back">
+      <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Accueil
+    </a>
+
+    <h1>Mentions légales<i>.</i></h1>
+    <p class="updated">Dernière mise à jour : 30 juillet 2026</p>
+
+    <h2>Éditeur</h2>
+    <p>Le site <strong>kalety.fr</strong>, le site <strong>neuropsy-assistant.com</strong> et l'application accessible à l'adresse <strong>app.neuropsy-assistant.com</strong> sont édités par :</p>
+    <div class="id-card">
+      <dl>
+        <dt>Dénomination</dt>
+        <dd>KALETY, société par actions simplifiée au capital de 20 000 €</dd>
+        <dt>Siège social</dt>
+        <dd>108 bis rue de Rimard, 03100 Montluçon, France</dd>
+        <dt>SIREN</dt>
+        <dd>999 064 157</dd>
+        <dt>SIRET du siège</dt>
+        <dd>999 064 157 00012</dd>
+        <dt>RCS</dt>
+        <dd>999 064 157 RCS Montluçon</dd>
+        <dt>TVA intracommunautaire</dt>
+        <dd>FR56999064157</dd>
+        <dt>Adresse électronique</dt>
+        <dd><a href="mailto:contact@kalety.fr">contact@kalety.fr</a></dd>
+      </dl>
+    </div>
+
+    <h2>Direction de la publication</h2>
+    <p>Le directeur de la publication est <strong>Hugo Basset</strong>, président de KALETY.</p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>Le Service, son logiciel, ses interfaces, sa marque, son logo et sa documentation sont protégés par le droit de la propriété intellectuelle. Toute reproduction ou représentation, totale ou partielle, est interdite sans l'autorisation écrite préalable de KALETY, sous réserve des exceptions prévues par la loi et des droits appartenant aux partenaires de KALETY.</p>
+
+    <h2>Contact</h2>
+    <p>Contact général : <a href="mailto:contact@kalety.fr">contact@kalety.fr</a></p>
+    <p>Protection des données : <a href="mailto:contact@kalety.fr">contact@kalety.fr</a>, à l'attention du référent RGPD.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="f-logo">Kalety<i>.</i></div>
+  <div class="f-mail">
+    <a href="mailto:contact@kalety.fr">contact@kalety.fr</a>
+    <a href="/mentions-legales">Mentions légales</a>
+  </div>
+  <div class="f-copy">&copy; 2026 Kalety SAS - Tous droits réservés</div>
+</footer>
+
+<script>
+const nb=document.getElementById('nb');
+let tk=false;
+window.addEventListener('scroll',()=>{if(!tk){requestAnimationFrame(()=>{nb.classList.toggle('s',scrollY>32);tk=false});tk=true}});
+</script>
+
+</body>
+</html>

@@ -46,4 +46,12 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Legal notice (French only) -->
+  <url>
+    <loc>https://kalety.fr/mentions-legales</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
