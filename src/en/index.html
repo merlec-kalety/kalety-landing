@@ -702,8 +702,8 @@
     }
 
     .team-grid {
-      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px;
-      max-width: 980px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px;
+      max-width: 1120px; margin: 0 auto;
     }
 
     .team-card {
@@ -716,45 +716,22 @@
       position: relative; overflow: hidden;
       display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start;
     }
-    .team-card::before {
-      content: ''; position: absolute; inset: 0 0 auto; height: 3px;
-      background: linear-gradient(90deg, var(--teal), #7C3AED);
-      opacity: .72;
-    }
     .team-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 32px rgba(0,0,0,.06), 0 0 0 1px rgba(27,163,150,.1);
     }
 
-    .team-card-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; }
-    .team-monogram {
-      width: 52px; height: 52px; border-radius: 16px; flex-shrink: 0;
-      display: grid; place-items: center;
-      background: linear-gradient(145deg, rgba(27,163,150,.13), rgba(124,58,237,.08));
-      border: 1px solid rgba(27,163,150,.14);
-      color: var(--teal); font-size: .8rem; font-weight: 800; letter-spacing: .06em;
-    }
     .team-name { font-size: 1.15rem; font-weight: 750; color: var(--text); margin-bottom: 5px; letter-spacing: -.025em; }
-    .team-role { font-size: .78rem; font-weight: 650; color: var(--teal); display: block; line-height: 1.4; }
+    .team-role { font-size: .78rem; font-weight: 650; color: var(--teal); display: block; line-height: 1.4; margin-bottom: 20px; }
     .team-desc { font-size: .88rem; line-height: 1.75; color: var(--text-50); }
-    .team-card--advisors {
-      grid-column: 1 / -1;
-      display: grid; grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr);
-      align-items: center; column-gap: 40px;
-      background: linear-gradient(120deg, rgba(27,163,150,.045), rgba(124,58,237,.025) 55%, var(--surface));
-    }
-    .team-card--advisors .team-card-head { margin-bottom: 0; }
 
     @media (max-width:768px) {
       .team-grid { grid-template-columns: 1fr; max-width: 520px; gap: 16px; }
       .team-card { padding: 28px 24px; }
-      .team-card--advisors { grid-column: auto; display: flex; }
-      .team-card--advisors .team-card-head { margin-bottom: 22px; }
     }
     @media (min-width:769px) and (max-width:960px) {
-      .team-grid { gap: 16px; }
+      .team-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
       .team-card { padding: 28px 24px; }
-      .team-card--advisors { grid-template-columns: minmax(220px, .7fr) minmax(0, 1.3fr); gap: 24px; }
     }
 
     /* ═══════ CTA section ═══════ */
@@ -1441,38 +1418,23 @@
   <div class="inner">
     <div class="r cen">
       <div class="tag" data-i18n="team_tag">The team</div>
-      <h2 class="sh" data-i18n="team_h">Complementary expertise,<br>one shared vision<i style="font-style:normal;color:var(--teal)">.</i></h2>
+      <h2 class="sh" data-i18n="team_h">Built by practitioners,<br>for practitioners<i style="font-style:normal;color:var(--teal)">.</i></h2>
       <p class="sp cen" data-i18n="team_p">Product, commercial, clinical and AI expertise united to transform practitioners' daily work.</p>
     </div>
     <div class="team-grid">
       <div class="team-card r d1">
-        <div class="team-card-head">
-          <div class="team-monogram" aria-hidden="true">HB</div>
-          <div>
-            <div class="team-name">Hugo Basset</div>
-            <span class="team-role" data-i18n="team_r1">CEO & Co-founder</span>
-          </div>
-        </div>
+        <div class="team-name">Hugo Basset</div>
+        <span class="team-role" data-i18n="team_r1">CEO & Co-founder</span>
         <p class="team-desc" data-i18n="team_d1">A graduate of École Polytechnique and UC Berkeley, with 7 years of experience as a Strategy & Analytics Lead at a startup and expertise in strategy, data analysis and product development.</p>
       </div>
       <div class="team-card r d2">
-        <div class="team-card-head">
-          <div class="team-monogram" aria-hidden="true">CL</div>
-          <div>
-            <div class="team-name">Chloé Legré</div>
-            <span class="team-role" data-i18n="team_r2">Chief Commercial Officer & Co-founder</span>
-          </div>
-        </div>
+        <div class="team-name">Chloé Legré</div>
+        <span class="team-role" data-i18n="team_r2">Chief Commercial Officer & Co-founder</span>
         <p class="team-desc" data-i18n="team_d2">An EDHEC graduate with 6 years of strategy consulting experience advising executives on growth, including as a former Manager at Bain & Company. She now leads go-to-market, pricing and partnerships.</p>
       </div>
-      <div class="team-card team-card--advisors r d3">
-        <div class="team-card-head">
-          <div class="team-monogram" aria-hidden="true">A+</div>
-          <div>
-            <div class="team-name" data-i18n="team_adv_title">Advisors</div>
-            <span class="team-role" data-i18n="team_adv_role">Doctors & Experts</span>
-          </div>
-        </div>
+      <div class="team-card r d3">
+        <div class="team-name" data-i18n="team_adv_title">Advisors</div>
+        <span class="team-role" data-i18n="team_adv_role">Doctors & Experts</span>
         <p class="team-desc" data-i18n="team_adv_desc">The product is co-developed with a practicing doctor of neuropsychology. Its technical design is supported by an AI expert who has led AI roadmaps for major French companies.</p>
       </div>
     </div>
@@ -1607,7 +1569,7 @@ ts1q:'"La meilleure IA pour Neuropsys que j\'ai testée. Point final."',ts1r:'Ne
 ts2q:'"Mon premier test avec Kalety : j\'ai dicté mes notes de séance, et le rapport était bon dès la première génération."',ts2r:'Psychiatre',
 ts3q:'"J\'ai récupéré presque 2 heures par jour. Merci Kalety !"',ts3r:'Psychologue clinicien',
 ts4q:'"On construit Kalety pour chaque praticien qui mérite de passer moins de temps à écrire et plus de temps à soigner. On a hâte d\'ouvrir la plateforme à l\'ensemble du monde médical."',ts4r:'CEO & Co-fondateur, Kalety',
-team_tag:'L\'équipe',team_h:'Une équipe complémentaire,<br>une vision commune<i style="font-style:normal;color:var(--teal)">.</i>',
+team_tag:'L\'équipe',team_h:'Construite par des praticiens,<br>pour des praticiens<i style="font-style:normal;color:var(--teal)">.</i>',
 team_p:'L\'expertise produit, commerciale, clinique et IA réunie pour transformer le quotidien des praticiens.',
 team_r1:'CEO & Co-fondateur',team_d1:'Diplômé de Polytechnique et d\'UC Berkeley, 7 ans d\'expérience au sein d\'une startup en tant que Strategy & Analytics Lead, avec une expertise en stratégie, analyse de données et développement produit.',
 team_r2:'Directrice Commerciale & Co-fondatrice',team_d2:'Diplômée de l\'EDHEC, 6 ans de conseil en stratégie auprès de dirigeants sur leurs enjeux de croissance (ex-Manager chez Bain & Company), aujourd\'hui en charge du go-to-market, du pricing et des partenariats.',
@@ -1664,7 +1626,7 @@ ts1q:'"The best AI for Neuropsych I\'ve ever tested. Period."',ts1r:'Neuropsycho
 ts2q:'"My first test with Kalety: I dictated my session notes, and the report was spot-on right out of the gate."',ts2r:'Psychiatrist',
 ts3q:'"I\'ve gained back nearly 2 hours a day. Thanks Kalety!"',ts3r:'Clinical psychologist',
 ts4q:'"We\'re building Kalety for every practitioner who deserves to spend less time writing and more time caring. We can\'t wait to open the platform to the entire medical community."',ts4r:'CEO & Co-founder, Kalety',
-team_tag:'The team',team_h:'Complementary expertise,<br>one shared vision<i style="font-style:normal;color:var(--teal)">.</i>',
+team_tag:'The team',team_h:'Built by practitioners,<br>for practitioners<i style="font-style:normal;color:var(--teal)">.</i>',
 team_p:'Product, commercial, clinical and AI expertise united to transform practitioners\' daily work.',
 team_r1:'CEO & Co-founder',team_d1:'A graduate of École Polytechnique and UC Berkeley, with 7 years of experience as a Strategy & Analytics Lead at a startup and expertise in strategy, data analysis and product development.',
 team_r2:'Chief Commercial Officer & Co-founder',team_d2:'An EDHEC graduate with 6 years of strategy consulting experience advising executives on growth, including as a former Manager at Bain & Company. She now leads go-to-market, pricing and partnerships.',
