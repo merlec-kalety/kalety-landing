@@ -148,6 +148,16 @@
     .mob-menu.open { display: flex; }
     .mob-menu a { color: var(--text-50); font-size: .9375rem; padding: 12px 16px; border-radius: 10px; text-decoration: none; }
 
+    .nav-r a.nav-login { color: var(--text); font-weight: 600; }
+    .mob-menu .app-signup { color: #fff; background: var(--teal); font-weight: 600; }
+    .nav-login:focus-visible, .app-signup:focus-visible, .hero-login a:focus-visible {
+      outline: 3px solid var(--teal); outline-offset: 4px;
+    }
+    @media (min-width: 901px) and (max-width: 1100px) {
+      .nav-r > .lk:not(.nav-login) { display: none; }
+      .burger { display: block; }
+    }
+
     /* ═══════ Hero ═══════ */
     .hero-team {
       position: relative; min-height: 60vh; display: flex; flex-direction: column;
@@ -436,92 +446,6 @@
     .f-copy { flex: 1; font-size: .75rem; color: var(--text-15); text-align: right; }
     .f-mail a:hover { color: var(--teal); }
 
-    /* ═══════ Modal ═══════ */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 200;
-      background: rgba(26,29,39,.45);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity .35s var(--ease);
-    }
-    .modal-overlay.open { opacity: 1; pointer-events: auto; }
-    .modal-overlay.open .modal { transform: translateY(0) scale(1); }
-
-    .modal {
-      position: relative; width: 90%; max-width: 480px; max-height: 90vh; overflow-y: auto;
-      background: var(--surface); border-radius: 24px;
-      padding: 48px 40px 40px; box-shadow: 0 24px 80px rgba(0,0,0,.12), 0 0 0 1px var(--border);
-      transform: translateY(24px) scale(.97);
-      transition: transform .4s var(--ease);
-    }
-    .modal-close {
-      position: absolute; top: 16px; right: 16px;
-      width: 36px; height: 36px; border-radius: 10px; border: none;
-      background: var(--text-08); cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: background .25s;
-    }
-    .modal-close:hover { background: var(--text-15); }
-    .modal-close svg { width: 16px; height: 16px; stroke: var(--text-50); stroke-width: 2; fill: none; stroke-linecap: round; }
-
-    .modal h3 {
-      font-size: 1.35rem; font-weight: 800; letter-spacing: -.03em;
-      margin-bottom: 6px; color: var(--text);
-    }
-    .modal .modal-sub {
-      font-size: .9rem; color: var(--text-30); line-height: 1.6; margin-bottom: 28px;
-    }
-
-    .form-group { margin-bottom: 16px; }
-    .form-group label {
-      display: block; font-size: .75rem; font-weight: 600; color: var(--text-50);
-      margin-bottom: 6px; letter-spacing: .02em;
-    }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: 12px 16px; border-radius: 12px;
-      border: 1px solid var(--border); background: var(--bg);
-      font-family: var(--font); font-size: .9rem; color: var(--text);
-      transition: border-color .25s, box-shadow .25s;
-      outline: none; box-sizing: border-box;
-    }
-    .form-group textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(27,163,150,.1);
-    }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-15); }
-    .form-group select { cursor: pointer; appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%231A1D27' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 14px center;
-      padding-right: 40px;
-    }
-
-    .form-submit {
-      width: 100%; margin-top: 24px; padding: 14px; border: none; border-radius: 14px;
-      font-family: var(--font); font-size: .95rem; font-weight: 700;
-      color: #fff; background: linear-gradient(135deg, var(--teal), var(--teal-soft));
-      cursor: pointer; transition: all .35s var(--ease);
-      box-shadow: 0 4px 16px rgba(27,163,150,.2);
-    }
-    .form-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(27,163,150,.35);
-    }
-    .form-submit:disabled {
-      opacity: .5; cursor: not-allowed; transform: none;
-      box-shadow: 0 4px 16px rgba(27,163,150,.1);
-    }
-
-    .form-success { text-align: center; padding: 24px 0; }
-    .form-success .check-circle {
-      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 16px;
-      background: linear-gradient(135deg, rgba(27,163,150,.12), rgba(27,163,150,.04));
-      display: flex; align-items: center; justify-content: center;
-    }
-    .form-success .check-circle svg { width: 28px; height: 28px; stroke: var(--teal); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .form-success h3 { margin-bottom: 8px; }
-    .form-success p { font-size: .9rem; color: var(--text-30); line-height: 1.6; }
-
     /* ═══════ Responsive ═══════ */
     @media (max-width: 900px) {
       .nav-r .lk { display: none; }
@@ -540,8 +464,6 @@
       .vision-block { padding: 28px 20px; margin-bottom: 48px; }
       .vision-block h3 { font-size: 1.15rem; }
       .vision-block p { font-size: .9rem; }
-      .modal { padding: 36px 24px 28px; }
-      .modal h3 { font-size: 1.15rem; }
       .cta-sec { padding: 80px 20px; }
       .values-row { gap: 12px; padding: 36px 16px; flex-wrap: wrap; justify-content: center; }
       .val-item { flex: 0 0 auto; }
@@ -574,7 +496,8 @@
       <button id="lFr" onclick="window.location.href='/join-us'">FR</button>
       <button id="lEn" class="on" onclick="setL('en')">EN</button>
     </div>
-    <a href="mailto:contact@kalety.fr" class="cta-nav" data-i18n="nav_cta">Contact</a>
+    <a href="https://app.neuropsy-assistant.com/login?lang=en" class="lk nav-login" data-i18n="nav_login">Log in</a>
+    <a href="https://app.neuropsy-assistant.com/signup?lang=en" class="cta-nav app-signup" data-i18n="nav_signup">Sign up</a>
     <button class="burger" onclick="togM()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -583,7 +506,8 @@
   <a href="./#solution" onclick="togM()" data-i18n="nav_solution">Solution</a>
   <a href="./#process" onclick="togM()" data-i18n="nav_process">Processus</a>
   <a href="#" onclick="togM()" data-i18n="nav_team">Join Us</a>
-  <a href="mailto:contact@kalety.fr" onclick="togM()" data-i18n="nav_cta">Contact</a>
+  <a href="https://app.neuropsy-assistant.com/login?lang=en" class="nav-login" data-i18n="nav_login">Log in</a>
+  <a href="https://app.neuropsy-assistant.com/signup?lang=en" class="app-signup" data-i18n="nav_signup">Sign up</a>
 </div>
 
 <main>
@@ -765,59 +689,6 @@
 </section>
 </main>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="betaModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <div id="formView">
-      <h3 data-i18n="m_h">Rejoindre la bêta</h3>
-      <p class="modal-sub" data-i18n="m_sub">Soyez parmi les premiers praticiens à tester Kalety. Places limitées.</p>
-      <form id="betaForm" onsubmit="submitForm(event)">
-        <div class="form-group">
-          <label data-i18n="m_name">Nom complet</label>
-          <input type="text" id="fName" required placeholder="Dr. Jean Dupont">
-        </div>
-        <div class="form-group">
-          <label data-i18n="m_email">Email professionnel</label>
-          <input type="email" id="fEmail" required placeholder="jean@cabinet.fr">
-        </div>
-        <div class="form-group">
-          <label data-i18n="m_spec">Spécialité</label>
-          <select id="fSpec" required>
-            <option value="" disabled selected data-i18n="m_spec_ph">Sélectionnez votre spécialité</option>
-            <option value="neuropsychologie" data-i18n="m_sp1">Neuropsychologie</option>
-            <option value="psychiatrie" data-i18n="m_sp2">Psychiatrie</option>
-            <option value="psychologie" data-i18n="m_sp3">Psychologie</option>
-            <option value="orthophonie" data-i18n="m_sp4">Orthophonie</option>
-            <option value="neurologie" data-i18n="m_sp6">Neurologie</option>
-            <option value="ergotherapie" data-i18n="m_sp7">Ergothérapie</option>
-            <option value="psychomotricite" data-i18n="m_sp8">Psychomotricité</option>
-            <option value="medecine-generale" data-i18n="m_sp9">Médecine générale</option>
-            <option value="pediatrie" data-i18n="m_sp10">Pédiatrie</option>
-            <option value="geriatrie" data-i18n="m_sp11">Gériatrie</option>
-            <option value="radiologie" data-i18n="m_sp12">Radiologie</option>
-            <option value="cardiologie" data-i18n="m_sp13">Cardiologie</option>
-            <option value="autre" data-i18n="m_sp5">Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label data-i18n="m_motiv">Motivation <span style="font-weight:400;color:var(--text-15)">(optionnel)</span></label>
-          <textarea id="fMotiv" rows="4" maxlength="500" oninput="document.getElementById('motivCount').textContent=this.value.length+' / 500'" data-i18n-ph="m_motiv_ph" placeholder="Pourquoi souhaitez-vous rejoindre la bêta ?"></textarea>
-          <div id="motivCount" style="text-align:right;font-size:.7rem;color:var(--text-15);margin-top:4px">0 / 500</div>
-        </div>
-        <button type="submit" class="form-submit" data-i18n="m_btn">Demander un accès</button>
-      </form>
-    </div>
-    <div id="successView" style="display:none">
-      <div class="form-success">
-        <div class="check-circle"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <h3 data-i18n="m_ok_h">Demande envoyée !</h3>
-        <p data-i18n="m_ok_p">Merci pour votre intérêt. Nous vous enverrons un email de confirmation sous 48h.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- FOOTER -->
 <footer>
   <div class="f-logo">Kalety<i>.</i></div>
@@ -827,7 +698,7 @@
 
 <script>
 const T={
-fr:{nav_problem:'Problème',nav_solution:'Solution',nav_process:'Processus',nav_team:'Join Us',nav_cta:'Contact',
+fr:{nav_problem:'Problème',nav_solution:'Solution',nav_process:'Processus',nav_team:'Join Us',nav_login:'Se connecter',nav_signup:'S’inscrire',
 h_badge:'Notre ADN',h1_t:'Construire le futur<br>du ',h1_grad:'reporting clinique.',
 h_sub:'L\'IA au service des humains. Et en particulier des professionnels de santé.',
 v1:'Impact-first',v2:'Compliance native',v3:'France + international',v4:'Équipe lean',
@@ -844,14 +715,8 @@ adn5h:'Impact réel sur le soin',adn5p:'Chaque heure économisée en rédaction 
 adn6h:'Multi-vertical natif',adn6p:'Même cœur IA, configurations par spécialité. L\'architecture est conçue pour s\'adapter à chaque domaine clinique.',
 cta_h:'Envie de rejoindre<br>l\'aventure ?',cta_p:'On cherche des profils tech, produit et clinique qui partagent notre ambition. Écrivez-nous.',
 cta_btn:'Nous contacter',
-m_h:'Rejoindre la bêta',m_sub:'Soyez parmi les premiers praticiens à tester Kalety. Places limitées.',
-m_name:'Nom complet',m_email:'Email professionnel',m_spec:'Spécialité',m_spec_ph:'Sélectionnez votre spécialité',
-m_sp1:'Neuropsychologie',m_sp2:'Psychiatrie',m_sp3:'Psychologie',m_sp4:'Orthophonie',m_sp5:'Autre',
-m_sp6:'Neurologie',m_sp7:'Ergothérapie',m_sp8:'Psychomotricité',m_sp9:'Médecine générale',m_sp10:'Pédiatrie',m_sp11:'Gériatrie',m_sp12:'Radiologie',m_sp13:'Cardiologie',
-m_motiv:'Motivation <span style="font-weight:400;color:var(--text-15)">(optionnel)</span>',m_motiv_ph:'Pourquoi souhaitez-vous rejoindre la bêta ?',
-m_btn:'Demander un accès',m_ok_h:'Demande envoyée !',m_ok_p:'Merci pour votre intérêt. Nous vous enverrons un email de confirmation sous 48h.',
 f_rights:'Tous droits réservés'},
-en:{nav_problem:'Problem',nav_solution:'Solution',nav_process:'Process',nav_team:'Join Us',nav_cta:'Contact',
+en:{nav_problem:'Problem',nav_solution:'Solution',nav_process:'Process',nav_team:'Join Us',nav_login:'Log in',nav_signup:'Sign up',
 h_badge:'Our DNA',h1_t:'Building the future<br>of ',h1_grad:'clinical reporting.',
 h_sub:'AI in service of humans. And especially healthcare professionals.',
 v1:'Impact-first',v2:'Native compliance',v3:'France + international',v4:'Lean team',
@@ -868,12 +733,6 @@ adn5h:'Real impact on care',adn5p:'Every hour saved on writing is an hour return
 adn6h:'Multi-vertical native',adn6p:'Same AI core, per-specialty configurations. The architecture is designed to adapt to every clinical domain.',
 cta_h:'Want to join<br>the adventure?',cta_p:'We\'re looking for tech, product and clinical profiles who share our ambition. Get in touch.',
 cta_btn:'Contact us',
-m_h:'Join the beta',m_sub:'Be among the first practitioners to try Kalety. Limited spots.',
-m_name:'Full name',m_email:'Professional email',m_spec:'Specialty',m_spec_ph:'Select your specialty',
-m_sp1:'Neuropsychology',m_sp2:'Psychiatry',m_sp3:'Psychology',m_sp4:'Speech therapy',m_sp5:'Other',
-m_sp6:'Neurology',m_sp7:'Occupational therapy',m_sp8:'Psychomotor therapy',m_sp9:'General practice',m_sp10:'Pediatrics',m_sp11:'Geriatrics',m_sp12:'Radiology',m_sp13:'Cardiology',
-m_motiv:'Motivation <span style="font-weight:400;color:var(--text-15)">(optional)</span>',m_motiv_ph:'Why do you want to join the beta?',
-m_btn:'Request access',m_ok_h:'Request sent!',m_ok_p:'Thanks for your interest. We\'ll send you a confirmation email within 48h.',
 f_rights:'All rights reserved'}
 };
 
@@ -907,55 +766,6 @@ document.querySelectorAll('.r').forEach(e=>obs.observe(e));
 
 function togM(){document.getElementById('mob').classList.toggle('open')}
 
-// Modal
-function openModal(){
-  document.getElementById('formView').style.display='block';
-  document.getElementById('successView').style.display='none';
-  document.getElementById('betaForm').reset();
-  document.getElementById('betaModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){document.getElementById('betaModal').classList.remove('open');document.body.style.overflow=''}
-document.getElementById('betaModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-
-// ═══════ Google Sheets integration ═══════
-// Replace with your deployed Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzoIOeFJc6IF3VQ5_-dxW0ESkWrSPJZBKQWBIj_aXU6UhEonknrEVEcDmJvCp-3Sv1E/exec';
-
-function submitForm(e){
-  e.preventDefault();
-  const btn=e.target.querySelector('.form-submit');
-  const origText=btn.textContent;
-  btn.disabled=true;btn.textContent='...';
-
-  const data={
-    name: document.getElementById('fName').value,
-    email: document.getElementById('fEmail').value,
-    specialty: document.getElementById('fSpec').value,
-    motivation: document.getElementById('fMotiv').value,
-    source: 'team',
-    lang: lang
-  };
-
-  // Use form-urlencoded (no-cors blocks application/json headers)
-  var formBody = new URLSearchParams();
-  formBody.append('payload', JSON.stringify(data));
-
-  fetch(GOOGLE_SCRIPT_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    body: formBody
-  })
-  .then(() => {
-    document.getElementById('formView').style.display='none';
-    document.getElementById('successView').style.display='block';
-  })
-  .catch(() => {
-    btn.disabled=false;btn.textContent=origText;
-    alert(lang==='fr'?'Erreur réseau. Veuillez réessayer.':'Network error. Please try again.');
-  });
-}
 </script>
 </body>
 </html>

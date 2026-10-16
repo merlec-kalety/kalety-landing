@@ -47,7 +47,6 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="dns-prefetch" href="https://script.google.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap&font-display=swap" rel="stylesheet">
 
   <!-- Structured Data -->
@@ -75,17 +74,11 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "Kalety",
+    "name": "Assistant neuropsy",
     "description": "Logiciel IA de generation de comptes-rendus neuropsychologiques. Bilans WISC-V, WAIS-IV, rapports cliniques automatises pour neuropsychologues et paramedicaux.",
-    "url": "https://kalety.fr",
+    "url": "https://app.neuropsy-assistant.com",
     "operatingSystem": "Web",
-    "applicationCategory": "HealthApplication",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "EUR",
-      "description": "Beta - 3 mois offerts"
-    }
+    "applicationCategory": "HealthApplication"
   }
   </script>
   <style>
@@ -120,7 +113,6 @@
       color: var(--text);
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 60px; /* space for fixed beta bar */
     }
     a, button { -webkit-tap-highlight-color: transparent; }
     img { max-width: 100%; height: auto; }
@@ -171,6 +163,16 @@
     .mob-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: rgba(248,249,252,.97); backdrop-filter: blur(20px); padding: 20px; border-bottom: 1px solid var(--border); flex-direction: column; gap: 8px; z-index: 99; }
     .mob-menu.open { display: flex; }
     .mob-menu a { color: var(--text-50); font-size: .9375rem; padding: 12px 16px; border-radius: 10px; text-decoration: none; }
+
+    .nav-r a.nav-login { color: var(--text); font-weight: 600; }
+    .mob-menu .app-signup { color: #fff; background: var(--teal); font-weight: 600; }
+    .nav-login:focus-visible, .app-signup:focus-visible, .hero-login a:focus-visible {
+      outline: 3px solid var(--teal); outline-offset: 4px;
+    }
+    @media (min-width: 901px) and (max-width: 1100px) {
+      .nav-r > .lk:not(.nav-login) { display: none; }
+      .burger { display: block; }
+    }
 
     /* ═══════ Hero ═══════ */
     .hero {
@@ -258,6 +260,9 @@
     }
 
     .cta-wrap { opacity: 0; animation: up .8s .6s var(--ease) forwards; }
+
+    .hero-login { margin-top: 24px; font-size: .875rem; color: var(--text-50); }
+    .hero-login a { color: var(--teal-dark); font-weight: 600; text-underline-offset: 3px; }
 
     .cta-main {
       position: relative; display: inline-flex; align-items: center; gap: 12px;
@@ -780,94 +785,6 @@
     .f-copy { flex: 1; font-size: .75rem; color: var(--text-15); text-align: right; }
     .f-mail a:hover { color: var(--teal); }
 
-    /* ═══════ Modal ═══════ */
-    .modal-overlay {
-      position: fixed; inset: 0; z-index: 200;
-      background: rgba(26,29,39,.45);
-      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-      display: flex; align-items: center; justify-content: center;
-      opacity: 0; pointer-events: none;
-      transition: opacity .35s var(--ease);
-    }
-    .modal-overlay.open { opacity: 1; pointer-events: auto; }
-    .modal-overlay.open .modal { transform: translateY(0) scale(1); }
-
-    .modal {
-      position: relative; width: 90%; max-width: 480px; max-height: 90vh; overflow-y: auto;
-      background: var(--surface); border-radius: 24px;
-      padding: 48px 40px 40px; box-shadow: 0 24px 80px rgba(0,0,0,.12), 0 0 0 1px var(--border);
-      transform: translateY(24px) scale(.97);
-      transition: transform .4s var(--ease);
-    }
-    .modal-close {
-      position: absolute; top: 16px; right: 16px;
-      width: 36px; height: 36px; border-radius: 10px; border: none;
-      background: var(--text-08); cursor: pointer; display: flex; align-items: center; justify-content: center;
-      transition: background .25s;
-    }
-    .modal-close:hover { background: var(--text-15); }
-    .modal-close svg { width: 16px; height: 16px; stroke: var(--text-50); stroke-width: 2; fill: none; stroke-linecap: round; }
-
-    .modal h3 {
-      font-size: 1.35rem; font-weight: 800; letter-spacing: -.03em;
-      margin-bottom: 6px; color: var(--text);
-    }
-    .modal .modal-sub {
-      font-size: .9rem; color: var(--text-30); line-height: 1.6; margin-bottom: 28px;
-    }
-
-    .form-group { margin-bottom: 16px; }
-    .form-group label {
-      display: block; font-size: .75rem; font-weight: 600; color: var(--text-50);
-      margin-bottom: 6px; letter-spacing: .02em;
-    }
-    .form-group input, .form-group select, .form-group textarea {
-      width: 100%; padding: 12px 16px; border-radius: 12px;
-      border: 1px solid var(--border); background: var(--bg);
-      font-family: var(--font); font-size: .9rem; color: var(--text);
-      transition: border-color .25s, box-shadow .25s;
-      outline: none; box-sizing: border-box;
-    }
-    .form-group textarea { resize: vertical; min-height: 100px; line-height: 1.5; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: var(--teal);
-      box-shadow: 0 0 0 3px rgba(27,163,150,.1);
-    }
-    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-15); }
-    .form-group select { cursor: pointer; appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%231A1D27' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 14px center;
-      padding-right: 40px;
-    }
-
-    .form-submit {
-      width: 100%; margin-top: 24px; padding: 14px; border: none; border-radius: 14px;
-      font-family: var(--font); font-size: .95rem; font-weight: 700;
-      color: #fff; background: linear-gradient(135deg, var(--teal), var(--teal-soft));
-      cursor: pointer; transition: all .35s var(--ease);
-      box-shadow: 0 4px 16px rgba(27,163,150,.2);
-    }
-    .form-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 28px rgba(27,163,150,.35);
-    }
-    .form-submit:disabled {
-      opacity: .5; cursor: not-allowed; transform: none;
-      box-shadow: 0 4px 16px rgba(27,163,150,.1);
-    }
-
-    .form-success {
-      text-align: center; padding: 24px 0;
-    }
-    .form-success .check-circle {
-      width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 16px;
-      background: linear-gradient(135deg, rgba(27,163,150,.12), rgba(27,163,150,.04));
-      display: flex; align-items: center; justify-content: center;
-    }
-    .form-success .check-circle svg { width: 28px; height: 28px; stroke: var(--teal); fill: none; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-    .form-success h3 { margin-bottom: 8px; }
-    .form-success p { font-size: .9rem; color: var(--text-30); line-height: 1.6; }
-
     /* ═══════ Testimonials ═══════ */
     .testi-sec { overflow: hidden; position: relative; }
     .testi-sec::before {
@@ -963,8 +880,6 @@
       .stat-sep { transform: rotate(90deg); }
       .testi-card { width: 280px !important; padding: 24px 20px; }
       .testi-card.wide { width: 320px !important; }
-      .modal { padding: 36px 24px 28px; }
-      .modal h3 { font-size: 1.15rem; }
       .cta-sec { padding: 80px 20px; }
       .cta-sec .sh { font-size: 1.6rem; }
       .cta-sec .sp-c { font-size: .92rem; }
@@ -972,9 +887,6 @@
       .cta-main { width: 100%; justify-content: center; padding: 16px 32px; font-size: .95rem; }
       .cta-secondary { width: 100%; justify-content: center; padding: 14px 28px; font-size: .95rem; }
       .trust { gap: 12px; padding: 36px 16px; }
-      .beta-bar { flex-wrap: wrap; justify-content: center; gap: 8px; padding: 10px 16px; }
-      .beta-bar-text { font-size: .78rem; text-align: center; width: 100%; }
-      .beta-bar-cta { width: 100%; text-align: center; }
       .tr-item span { font-size: .72rem; }
       .pc-stage { gap: 0; margin: 0 -14px; }
       .pc-arrow { display: none; }
@@ -1003,65 +915,8 @@
       .f-copy { font-size: .65rem; }
       .testi-card { width: 260px !important; }
       .testi-card.wide { width: 280px !important; }
-      .beta-bar { padding: 10px 36px 10px 12px; gap: 6px; }
-      .beta-bar-text { font-size: .72rem; }
-      .beta-bar-seats { font-size: .7rem; padding: 4px 8px; }
-      .beta-bar-cta { font-size: .75rem; padding: 7px 14px; }
     }
 
-    /* ═══════ Beta notification bar ═══════ */
-    .beta-bar {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
-      display: flex; align-items: center; justify-content: center; gap: 16px;
-      padding: 14px clamp(16px,4vw,48px); padding-right: 48px;
-      background: linear-gradient(135deg, var(--teal), var(--teal-soft));
-      color: #fff; font-family: var(--font);
-      box-shadow: 0 -4px 24px rgba(27,163,150,.25);
-      transform: translateY(100%);
-      animation: bar-slide-up .6s .8s var(--ease) forwards;
-    }
-    @keyframes bar-slide-up { to { transform: translateY(0); } }
-
-    .beta-bar-text {
-      font-size: .875rem; font-weight: 600; letter-spacing: -.01em;
-    }
-    .beta-bar-text strong {
-      font-weight: 800;
-    }
-    .beta-bar-seats {
-      display: inline-flex; align-items: center; gap: 6px;
-      background: rgba(255,255,255,.18); border-radius: 8px;
-      padding: 5px 12px; font-size: .8rem; font-weight: 700;
-      white-space: nowrap;
-    }
-    .beta-bar-seats .dot {
-      width: 6px; height: 6px; border-radius: 50%;
-      background: #fff; animation: pulse 2s ease-in-out infinite;
-    }
-    .beta-bar-cta {
-      font-family: var(--font); font-size: .8125rem; font-weight: 700;
-      background: #fff; color: var(--teal); border: none; border-radius: 10px;
-      padding: 9px 20px; cursor: pointer;
-      transition: all .3s var(--ease); white-space: nowrap;
-    }
-    .beta-bar-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,.15); }
-
-    .beta-bar-close {
-      position: absolute; right: 12px; top: 12px;
-      background: rgba(255,255,255,.15); border: none; border-radius: 8px;
-      width: 28px; height: 28px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center;
-      transition: background .25s;
-    }
-    .beta-bar-close:hover { background: rgba(255,255,255,.3); }
-    .beta-bar-close svg { width: 12px; height: 12px; stroke: #fff; stroke-width: 2.5; fill: none; stroke-linecap: round; }
-
-    .beta-bar.hidden { transform: translateY(100%); transition: transform .4s var(--ease); animation: none; }
-
-    @media (max-width: 600px) {
-      .beta-bar { flex-wrap: wrap; gap: 8px; padding: 12px 40px 12px 16px; }
-      .beta-bar-text { font-size: .78rem; }
-    }
   </style>
 </head>
 <body>
@@ -1078,7 +933,8 @@
       <button id="lFr" class="on" onclick="setL('fr')">FR</button>
       <button id="lEn" onclick="window.location.href='/en/'">EN</button>
     </div>
-    <a href="mailto:contact@kalety.fr" class="cta-nav" data-i18n="nav_cta">Contact</a>
+    <a href="https://app.neuropsy-assistant.com/login?lang=fr" class="lk nav-login" data-i18n="nav_login">Se connecter</a>
+    <a href="https://app.neuropsy-assistant.com/signup?lang=fr" class="cta-nav app-signup" data-i18n="nav_signup">S’inscrire</a>
     <button class="burger" onclick="togM()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
 </nav>
@@ -1087,7 +943,8 @@
   <a href="#solution" onclick="togM()" data-i18n="nav_solution">Solution</a>
   <a href="#process" onclick="togM()" data-i18n="nav_process">Processus</a>
   <a href="#team" data-i18n="nav_team">Join Us</a>
-  <a href="mailto:contact@kalety.fr" data-i18n="nav_cta">Contact</a>
+  <a href="https://app.neuropsy-assistant.com/login?lang=fr" class="nav-login" data-i18n="nav_login">Se connecter</a>
+  <a href="https://app.neuropsy-assistant.com/signup?lang=fr" class="app-signup" data-i18n="nav_signup">S’inscrire</a>
 </div>
 
 <main>
@@ -1101,13 +958,15 @@
     <div class="glow-line"></div>
   </div>
   <div class="hero-content">
+    <div class="pill"><span class="pill-dot" aria-hidden="true"></span><span data-i18n="product_name">Assistant neuropsy</span></div>
     <h1 data-i18n-html="h1">Concentrez-vous sur<br>le <span class="grad">patient</span><span class="tail">, pas sur la paperasse.</span></h1>
     <p class="hero-p" data-i18n="h_sub">L'assistant IA des professionnels de santé : dictez vos observations, il génère vos rapports cliniques en moins de 30 minutes.</p>
     <div class="cta-wrap">
-      <button onclick="openModal()" class="cta-main">
-        <span data-i18n="h_cta">Rejoindre la bêta</span>
+      <a href="https://app.neuropsy-assistant.com/signup?lang=fr" class="cta-main app-signup">
+        <span data-i18n="h_cta">Créer mon compte</span>
         <span class="arrow-circle"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </button>
+      </a>
+      <p class="hero-login"><span data-i18n="h_existing">Déjà un compte ?</span> <a href="https://app.neuropsy-assistant.com/login?lang=fr" data-i18n="nav_login">Se connecter</a></p>
     </div>
   </div>
   <div class="scroll-cue"><div class="ln"></div></div>
@@ -1449,74 +1308,13 @@
     <a href="mailto:contact@kalety.fr" class="cta-secondary">
       <span data-i18n="cta_ask">Nous contacter</span>
     </a>
-    <button onclick="openModal()" class="cta-main">
-      <span data-i18n="cta_btn">Rejoindre la bêta</span>
+    <a href="https://app.neuropsy-assistant.com/signup?lang=fr" class="cta-main app-signup">
+      <span data-i18n="cta_btn">Créer mon compte</span>
       <span class="arrow-circle"><svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-    </button>
+    </a>
   </div>
 </section>
 </main>
-
-<!-- MODAL -->
-<div class="modal-overlay" id="betaModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-    <div id="formView">
-      <h3 data-i18n="m_h">Rejoindre la bêta</h3>
-      <p class="modal-sub" data-i18n="m_sub">Soyez parmi les premiers praticiens à tester Kalety. Places limitées.</p>
-      <form id="betaForm" onsubmit="submitForm(event)">
-        <div class="form-group">
-          <label data-i18n="m_name">Nom complet</label>
-          <input type="text" id="fName" required placeholder="Dr. Jean Dupont">
-        </div>
-        <div class="form-group">
-          <label data-i18n="m_email">Email professionnel</label>
-          <input type="email" id="fEmail" required placeholder="jean@cabinet.fr">
-        </div>
-        <div class="form-group">
-          <label data-i18n="m_spec">Spécialité</label>
-          <select id="fSpec" required>
-            <option value="" disabled selected data-i18n="m_spec_ph">Sélectionnez votre spécialité</option>
-            <option value="neuropsychologie" data-i18n="m_sp1">Neuropsychologie</option>
-            <option value="psychiatrie" data-i18n="m_sp2">Psychiatrie</option>
-            <option value="psychologie" data-i18n="m_sp3">Psychologie</option>
-            <option value="orthophonie" data-i18n="m_sp4">Orthophonie</option>
-            <option value="neurologie" data-i18n="m_sp6">Neurologie</option>
-            <option value="ergotherapie" data-i18n="m_sp7">Ergothérapie</option>
-            <option value="psychomotricite" data-i18n="m_sp8">Psychomotricité</option>
-            <option value="medecine-generale" data-i18n="m_sp9">Médecine générale</option>
-            <option value="pediatrie" data-i18n="m_sp10">Pédiatrie</option>
-            <option value="geriatrie" data-i18n="m_sp11">Gériatrie</option>
-            <option value="radiologie" data-i18n="m_sp12">Radiologie</option>
-            <option value="cardiologie" data-i18n="m_sp13">Cardiologie</option>
-            <option value="autre" data-i18n="m_sp5">Autre</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label data-i18n="m_motiv">Motivation <span style="font-weight:400;color:var(--text-15)">(optionnel)</span></label>
-          <textarea id="fMotiv" rows="4" maxlength="500" oninput="document.getElementById('motivCount').textContent=this.value.length+' / 500'" data-i18n-ph="m_motiv_ph" placeholder="Pourquoi souhaitez-vous rejoindre la bêta ?"></textarea>
-          <div id="motivCount" style="text-align:right;font-size:.7rem;color:var(--text-15);margin-top:4px">0 / 500</div>
-        </div>
-        <button type="submit" class="form-submit" data-i18n="m_btn">Demander un accès</button>
-      </form>
-    </div>
-    <div id="successView" style="display:none">
-      <div class="form-success">
-        <div class="check-circle"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <h3 data-i18n="m_ok_h">Demande envoyée !</h3>
-        <p data-i18n="m_ok_p">Merci pour votre intérêt. Nous vous enverrons un email de confirmation sous 48h.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- BETA NOTIFICATION BAR -->
-<div class="beta-bar" id="betaBar">
-  <span class="beta-bar-text" data-i18n="bar_text"><strong>3 mois offerts</strong> si vous rejoignez la bêta</span>
-  <span class="beta-bar-seats"><span class="dot"></span> <span id="barPct">18</span>% <span data-i18n="bar_seats">des places restantes</span></span>
-  <button class="beta-bar-cta" onclick="openModal()" data-i18n="bar_cta">Rejoindre maintenant</button>
-  <button class="beta-bar-close" onclick="closeBetaBar()" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-</div>
 
 <!-- FOOTER -->
 <footer>
@@ -1527,10 +1325,10 @@
 
 <script>
 const T={
-fr:{nav_problem:'Problème',nav_solution:'Solution',nav_process:'Processus',nav_team:'Équipe',nav_cta:'Contact',
+fr:{nav_problem:'Problème',nav_solution:'Solution',nav_process:'Processus',nav_team:'Équipe',nav_login:'Se connecter',nav_signup:'S’inscrire',
 h_badge:'Plateforme IA clinique',h1_t:'Concentrez-vous sur<br>le ',h1_grad:'patient',h1_tail:', pas sur la paperasse.',
 h_sub:'L\'assistant IA des professionnels de santé : dictez vos observations, il génère vos rapports cliniques en moins de 30 minutes.',
-h_cta:'Rejoindre la bêta',
+h_cta:'Créer mon compte',product_name:'Assistant neuropsy',h_existing:'Déjà un compte ?',
 s1v:'2-6h',s1l:'de rédaction par rapport aujourd\'hui',s2l:'avec Kalety',
 f1t:'Adapté par spécialité',f1s:'Neuropsychologie, orthophonie',
 f2t:'HDS / RGPD',f2s:'Hébergement souverain EU, chiffré',
@@ -1575,19 +1373,12 @@ team_r1:'CEO & Co-fondateur',team_d1:'Diplômé de Polytechnique et d\'UC Berkel
 team_r2:'Directrice Commerciale & Co-fondatrice',team_d2:'Diplômée de l\'EDHEC, 6 ans de conseil en stratégie auprès de dirigeants sur leurs enjeux de croissance (ex-Manager chez Bain & Company), aujourd\'hui en charge du go-to-market, du pricing et des partenariats.',
 team_adv_title:'Advisors',team_adv_role:'Docteurs & Experts',team_adv_desc:'Co-construction du produit avec un docteur en neuropsychologie en exercice. Conception technique s\'appuyant sur un expert IA ayant piloté des feuilles de route IA pour de grandes entreprises françaises.',
 cta_h:'Prêt à redevenir maître de votre temps ?',cta_p:'Rejoignez les premiers praticiens à transformer leur pratique avec Kalety.',
-cta_ask:'Nous contacter',cta_btn:'Rejoindre la bêta',
-m_h:'Rejoindre la bêta',m_sub:'Soyez parmi les premiers praticiens à tester Kalety. Places limitées.',
-m_name:'Nom complet',m_email:'Email professionnel',m_spec:'Spécialité',m_spec_ph:'Sélectionnez votre spécialité',
-m_sp1:'Neuropsychologie',m_sp2:'Psychiatrie',m_sp3:'Psychologie',m_sp4:'Orthophonie',m_sp5:'Autre',
-m_sp6:'Neurologie',m_sp7:'Ergothérapie',m_sp8:'Psychomotricité',m_sp9:'Médecine générale',m_sp10:'Pédiatrie',m_sp11:'Gériatrie',m_sp12:'Radiologie',m_sp13:'Cardiologie',
-m_motiv:'Motivation <span style="font-weight:400;color:var(--text-15)">(optionnel)</span>',m_motiv_ph:'Pourquoi souhaitez-vous rejoindre la bêta ?',
-m_btn:'Demander un accès',m_ok_h:'Demande envoyée !',m_ok_p:'Merci pour votre intérêt. Nous vous enverrons un email de confirmation sous 48h.',
-bar_text:'<strong>3 mois offerts</strong> si vous rejoignez la bêta',bar_seats:'des places restantes',bar_cta:'Rejoindre maintenant',
+cta_ask:'Nous contacter',cta_btn:'Créer mon compte',
 f_rights:'Tous droits réservés'},
-en:{nav_problem:'Problem',nav_solution:'Solution',nav_process:'Process',nav_team:'Team',nav_cta:'Contact',
+en:{nav_problem:'Problem',nav_solution:'Solution',nav_process:'Process',nav_team:'Team',nav_login:'Log in',nav_signup:'Sign up',
 h_badge:'Clinical AI platform',h1_t:'Focus on<br>the ',h1_grad:'patient',h1_tail:', not the paperwork.',
 h_sub:'The AI assistant for healthcare professionals: dictate your observations, it generates your clinical reports in under 30 minutes.',
-h_cta:'Join the beta',
+h_cta:'Create my account',product_name:'Neuropsy Assistant',h_existing:'Already have an account?',
 s1v:'2-6h',s1l:'of writing per report today',s2l:'with Kalety',
 f1t:'Tailored to your specialty',f1s:'Neuropsychology, speech therapy',
 f2t:'HDS / GDPR',f2s:'Sovereign EU hosting, encrypted',
@@ -1632,14 +1423,7 @@ team_r1:'CEO & Co-founder',team_d1:'A graduate of École Polytechnique and UC Be
 team_r2:'Chief Commercial Officer & Co-founder',team_d2:'An EDHEC graduate with 6 years of strategy consulting experience advising executives on growth, including as a former Manager at Bain & Company. She now leads go-to-market, pricing and partnerships.',
 team_adv_title:'Advisors',team_adv_role:'Doctors & Experts',team_adv_desc:'The product is co-developed with a practicing doctor of neuropsychology. Its technical design is supported by an AI expert who has led AI roadmaps for major French companies.',
 cta_h:'Ready to reclaim your time?',cta_p:'Join the first practitioners transforming their practice with Kalety.',
-cta_ask:'Ask us more',cta_btn:'Join the beta',
-m_h:'Join the beta',m_sub:'Be among the first practitioners to try Kalety. Limited spots.',
-m_name:'Full name',m_email:'Professional email',m_spec:'Specialty',m_spec_ph:'Select your specialty',
-m_sp1:'Neuropsychology',m_sp2:'Psychiatry',m_sp3:'Psychology',m_sp4:'Speech therapy',m_sp5:'Other',
-m_sp6:'Neurology',m_sp7:'Occupational therapy',m_sp8:'Psychomotor therapy',m_sp9:'General practice',m_sp10:'Pediatrics',m_sp11:'Geriatrics',m_sp12:'Radiology',m_sp13:'Cardiology',
-m_motiv:'Motivation <span style="font-weight:400;color:var(--text-15)">(optional)</span>',m_motiv_ph:'Why do you want to join the beta?',
-m_btn:'Request access',m_ok_h:'Request sent!',m_ok_p:'Thanks for your interest. We\'ll send you a confirmation email within 48h.',
-bar_text:'<strong>3 free months</strong> if you join the beta',bar_seats:'of seats remaining',bar_cta:'Join now',
+cta_ask:'Ask us more',cta_btn:'Create my account',
 f_rights:'All rights reserved'}
 };
 
@@ -1756,76 +1540,6 @@ const track=document.getElementById('testiTrack');
 if(track){track.innerHTML+=track.innerHTML;}
 document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{e.preventDefault();const t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 
-// Modal
-function openModal(){
-  document.getElementById('formView').style.display='block';
-  document.getElementById('successView').style.display='none';
-  document.getElementById('betaForm').reset();
-  document.getElementById('betaModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){document.getElementById('betaModal').classList.remove('open');document.body.style.overflow=''}
-document.getElementById('betaModal').addEventListener('click',e=>{if(e.target===e.currentTarget)closeModal()});
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-
-// ═══════ Google Sheets integration ═══════
-// Replace with your deployed Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzoIOeFJc6IF3VQ5_-dxW0ESkWrSPJZBKQWBIj_aXU6UhEonknrEVEcDmJvCp-3Sv1E/exec';
-
-function submitForm(e){
-  e.preventDefault();
-  const btn=e.target.querySelector('.form-submit');
-  const origText=btn.textContent;
-  btn.disabled=true;btn.textContent='...';
-
-  const data={
-    name: document.getElementById('fName').value,
-    email: document.getElementById('fEmail').value,
-    specialty: document.getElementById('fSpec').value,
-    motivation: document.getElementById('fMotiv').value,
-    source: 'main',
-    lang: lang
-  };
-
-  // Use form-urlencoded (no-cors blocks application/json headers)
-  var formBody = new URLSearchParams();
-  formBody.append('payload', JSON.stringify(data));
-
-  fetch(GOOGLE_SCRIPT_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    body: formBody
-  })
-  .then(() => {
-    document.getElementById('formView').style.display='none';
-    document.getElementById('successView').style.display='block';
-  })
-  .catch(() => {
-    btn.disabled=false;btn.textContent=origText;
-    alert(lang==='fr'?'Erreur réseau. Veuillez réessayer.':'Network error. Please try again.');
-  });
-}
-
-// Beta bar: seats % goes from 18→1 over 14 days starting 2026-02-16
-(function(){
-  const START=new Date('2026-02-16T00:00:00').getTime();
-  const DURATION=14*24*60*60*1000; // 14 days in ms
-  const MAX_PCT=18;
-  const MIN_PCT=1;
-  function update(){
-    const elapsed=Date.now()-START;
-    const ratio=Math.min(Math.max(elapsed/DURATION,0),1);
-    const pct=Math.max(MIN_PCT,Math.round(MAX_PCT-(MAX_PCT-MIN_PCT)*ratio));
-    const el=document.getElementById('barPct');
-    if(el) el.textContent=pct;
-  }
-  update();
-  setInterval(update,60000); // refresh every minute
-})();
-
-function closeBetaBar(){
-  document.getElementById('betaBar').classList.add('hidden');
-}
 </script>
 </body>
 </html>
